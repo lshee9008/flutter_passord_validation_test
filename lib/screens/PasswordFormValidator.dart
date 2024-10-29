@@ -8,10 +8,13 @@ class Passwordformvalidator extends StatefulWidget {
 }
 
 class _PasswordformvalidatorState extends State<Passwordformvalidator> {
+  bool isSuccess = false; // initially
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true, // for android
         backgroundColor: Colors.black,
         title: Text(
           'Password Form Validation',
@@ -19,6 +22,19 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(
+          15,
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 200,
+              width: double.infinity,
+            ),
+          ],
         ),
       ),
     );
