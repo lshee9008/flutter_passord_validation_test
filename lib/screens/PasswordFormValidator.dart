@@ -150,10 +150,9 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                             fillColor: Colors.white,
                             iconColor: Colors.white,
                             focusColor: Colors.white,
+
+                            // labelText 스타일
                             labelStyle: TextStyle(
-                              color: Colors.white,
-                            ),
-                            floatingLabelStyle: TextStyle(
                               color: Colors.white,
                             ),
                             suffixIcon: IconButton(
