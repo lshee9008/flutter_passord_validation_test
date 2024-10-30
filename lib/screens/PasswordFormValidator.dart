@@ -88,6 +88,8 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                     // the main parts
                     // validation parts
                     FlutterPwValidator(
+                      defaultColor: Colors.grey,
+
                       uppercaseCharCount: 1,
                       lowercaseCharCount: 2,
                       numericCharCount: 1,
@@ -103,7 +105,9 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                           isSuccess = true;
                         });
                       },
-                      onFail: () {},
+                      onFail: () {
+                        isSuccess = false;
+                      },
                       controller: controller,
                     ),
                   ],
