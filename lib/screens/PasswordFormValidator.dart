@@ -17,24 +17,16 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true, // for android
-        backgroundColor: Colors.black,
-        title: Text(
-          'Password Form Validation',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-      ),
       body: Padding(
         padding: EdgeInsets.all(
-          15,
+          20,
         ),
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: 37,
+              ),
               SizedBox(
                 height: 200,
                 width: double.infinity,
