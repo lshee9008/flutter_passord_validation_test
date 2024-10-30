@@ -101,7 +101,7 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                     height: 73,
                   ),
                   Text(
-                    "로그인을 해주세요",
+                    "Sign Up",
                     style: TextStyle(
                       fontSize: 37,
                       fontWeight: FontWeight.bold,
@@ -116,9 +116,9 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                     width: double.infinity,
                     child: isSuccess
                         ? Lottie.network(
-                            "https://lottie.host/c288e345-7b57-45c8-b224-cc6af457bfe0/7wi1v8ZrWM.json")
+                            "https://lottie.host/fbb60d55-195b-4ba4-bd94-dff8c8bd8ca0/qY4lGlyn9o.json")
                         : Lottie.network(
-                            "https://lottie.host/de8895c3-39b1-488d-8089-d42c697bd7f2/8q4PKhMEyb.json"),
+                            "https://lottie.host/1863383f-cb0f-4d19-a31a-34a22f3cd27d/rDQBkffNLz.json"),
                   ),
                   SizedBox(
                     height: 300,
