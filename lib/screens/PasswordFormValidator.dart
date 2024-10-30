@@ -88,11 +88,22 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                     // the main parts
                     // validation parts
                     FlutterPwValidator(
+                      uppercaseCharCount: 1,
+                      lowercaseCharCount: 2,
+                      numericCharCount: 1,
+                      normalCharCount: 3,
+                      specialCharCount: 1,
+
                       width: 350,
                       height: 200,
                       minLength:
                           8, // password should be at list 8 character length
-                      onSuccess: () {},
+                      onSuccess: () {
+                        setState(() {
+                          isSuccess = true;
+                        });
+                      },
+                      onFail: () {},
                       controller: controller,
                     ),
                   ],
