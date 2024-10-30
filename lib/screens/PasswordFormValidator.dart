@@ -1,3 +1,5 @@
+import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:lottie/lottie.dart';
@@ -14,15 +16,76 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
   bool isSuccess = false; // initially
   bool _obscureText = true;
 
+  Timer? _timer;
+  Color _randomColor = Color.fromARGB(255, 44, 18, 36); // initial color
+  Color _randomColor2 = Color.fromARGB(255, 44, 18, 36); // initial color
+  Random _random = Random();
+
+  @override
+  void initState() {
+    super.initState();
+    _startColorChangeTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel(); // Cancel the timer to prevent memory leaks
+    super.dispose();
+  }
+
+  void _startColorChangeTimer() {
+    _timer = Timer.periodic(Duration(milliseconds: 500), (timer) {
+      // Change duration to 0.5 seconds
+      setState(() {
+        _randomColor = _generateRandomColor();
+        _randomColor2 = _generateRandomColor();
+      });
+    });
+  }
+
+  Color _generateRandomColor() {
+    return Color.fromARGB(
+      255,
+      _random.nextInt(50), // Red component
+      _random.nextInt(50), // Green component
+      _random.nextInt(50), // Blue component
+    );
+  }
+
+  Alignment _AlignmentRandom() {
+    return AlignmentArray[_random.nextInt(8)];
+  }
+
+  List<Alignment> AlignmentArray = [
+    Alignment.bottomCenter,
+    Alignment.bottomLeft,
+    Alignment.bottomRight,
+    Alignment.center,
+    Alignment.centerLeft,
+    Alignment.centerRight,
+    Alignment.topCenter,
+    Alignment.topLeft,
+    Alignment.topRight
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           Container(
-            color: Colors.black38,
             height: double.infinity,
             width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  _randomColor,
+                  _randomColor2, // Random color
+                ],
+                begin: _AlignmentRandom(),
+                end: _AlignmentRandom(),
+              ),
+            ),
           ),
           Container(
             color: const Color.fromARGB(93, 0, 0, 0),
@@ -40,8 +103,9 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                   Text(
                     "로그인을 해주세요",
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 37,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                   SizedBox(
@@ -67,7 +131,7 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                           decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.black,
+                                color: Colors.white,
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(20),
@@ -80,6 +144,18 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             labelText: "Password",
+                            hoverColor: Colors.white,
+                            prefixIconColor: Colors.white,
+                            suffixIconColor: Colors.white,
+                            fillColor: Colors.white,
+                            iconColor: Colors.white,
+                            focusColor: Colors.white,
+                            labelStyle: TextStyle(
+                              color: Colors.white,
+                            ),
+                            floatingLabelStyle: TextStyle(
+                              color: Colors.white,
+                            ),
                             suffixIcon: IconButton(
                               onPressed: () {
                                 setState(() {
@@ -100,7 +176,7 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                         // the main parts
                         // validation parts
                         FlutterPwValidator(
-                          defaultColor: Colors.grey,
+                          defaultColor: Colors.white,
 
                           uppercaseCharCount: 1,
                           lowercaseCharCount: 2,
