@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:lottie/lottie.dart';
 
 class Passwordformvalidator extends StatefulWidget {
@@ -83,7 +84,17 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                     ),
                     SizedBox(
                       height: 15,
-                    )
+                    ),
+                    // the main parts
+                    // validation parts
+                    FlutterPwValidator(
+                      width: 350,
+                      height: 200,
+                      minLength:
+                          8, // password should be at list 8 character length
+                      onSuccess: () {},
+                      controller: controller,
+                    ),
                   ],
                 ),
               ),
