@@ -170,7 +170,7 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                           ),
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 30,
                         ),
                         // the main parts
                         // validation parts
@@ -183,7 +183,7 @@ class _PasswordformvalidatorState extends State<Passwordformvalidator> {
                           normalCharCount: 3,
                           specialCharCount: 1,
 
-                          width: 350,
+                          width: 330,
                           height: 200,
                           minLength:
                               8, // password should be at list 8 character length
